@@ -17,14 +17,14 @@ if PY2:
         )
         empty = AttrDict()
 
-        assert_true('foo' in mapping)
-        assert_false('foo' in empty)
+        assert_true(mapping.has_key('foo'))
+        assert_false(empty.has_key('foo'))
 
-        assert_true(frozenset((1, 2, 3)) in mapping)
-        assert_false(frozenset((1, 2, 3)) in empty)
+        assert_true(mapping.has_key(frozenset((1, 2, 3))))
+        assert_false(empty.has_key(frozenset((1, 2, 3))))
 
-        assert_true(1 in mapping)
-        assert_false(1 in empty)
+        assert_true(mapping.has_key(1))
+        assert_false(empty.has_key(1))
 
-        assert_false('banana' in mapping)
-        assert_false('banana' in empty)
+        assert_false(mapping.has_key('banana'))
+        assert_false(empty.has_key('banana'))
